@@ -1,0 +1,27 @@
+{
+  "id": "e4a1ab1d-f206-4577-b291-0bfa87471ff0",
+  "name": "My Test Environment",
+  "values": [
+    {
+      "key": "api_key",
+      "value": "abc123",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "user_id",
+      "value": "test_user",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "base_url",
+      "value": "https://example.com/api",
+      "type": "default",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2025-04-27T14:29:48.922085",
+  "_postman_exported_using": "API-Test-AI/1.0"
+}

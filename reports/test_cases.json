@@ -1,0 +1,1756 @@
+{
+  "POST /BackupUDBInstance": {
+    "endpoint": {
+      "path": "/BackupUDBInstance",
+      "method": "POST",
+      "description": "# 备份云数据库"
+    },
+    "test_cases": [
+      {
+        "name": "BackupUDBInstance_正常路径测试",
+        "description": "使用所有必填参数和常见可选参数测试API的正常功能",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_aycsf",
+            "BackupName": "test_BackupName_tnege",
+            "UseBlacklist": false,
+            "ForceBackup": true,
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_仅必填参数测试",
+        "description": "仅使用必填参数测试API",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_部分选填参数测试",
+        "description": "测试部分选填参数",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_fvteu",
+            "BackupName": "test_BackupName_qzswi",
+            "Blacklist": "test_Blacklist_hjbgd",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_所有参数测试",
+        "description": "使用所有参数测试API",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_ofyre",
+            "BackupName": "test_BackupName_vsrfo",
+            "UseBlacklist": false,
+            "BackupMethod": "test_BackupMethod_cduup",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "test_Blacklist_zgbnd",
+            "ForceBackup": true
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_string_类型测试",
+        "description": "测试string类型参数 DBId 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "测试字符串Value_123"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_string_类型测试",
+        "description": "测试string类型参数 BackupName 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "测试字符串Value_123"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_UseBlacklist_boolean_类型测试",
+        "description": "测试boolean类型参数 UseBlacklist 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "UseBlacklist": true
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_string_类型测试",
+        "description": "测试string类型参数 BackupMethod 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "测试字符串Value_123"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_string_类型测试",
+        "description": "测试string类型参数 Blacklist 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "测试字符串Value_123"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_ForceBackup_boolean_类型测试",
+        "description": "测试boolean类型参数 ForceBackup 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "ForceBackup": true
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_string_类型测试",
+        "description": "测试string类型参数 Action 的处理",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "等价类测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_empty_边界值测试",
+        "description": "测试参数 DBId 的空字符串",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": ""
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_long_边界值测试",
+        "description": "测试参数 DBId 的超长字符串(1000字符)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_special_边界值测试",
+        "description": "测试参数 DBId 的特殊字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "!@#$%^&*()_+-=[]{}|;':\",./<>?\\"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_spaces_边界值测试",
+        "description": "测试参数 DBId 的空格前后",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "   空格前后   "
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_emoji_边界值测试",
+        "description": "测试参数 DBId 的Emoji字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "测试Emoji😀👍🎉"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_multilingual_边界值测试",
+        "description": "测试参数 DBId 的多语言字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": "English中文日本語한국어"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_empty_边界值测试",
+        "description": "测试参数 BackupName 的空字符串",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": ""
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_long_边界值测试",
+        "description": "测试参数 BackupName 的超长字符串(1000字符)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_special_边界值测试",
+        "description": "测试参数 BackupName 的特殊字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "!@#$%^&*()_+-=[]{}|;':\",./<>?\\"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_spaces_边界值测试",
+        "description": "测试参数 BackupName 的空格前后",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "   空格前后   "
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_emoji_边界值测试",
+        "description": "测试参数 BackupName 的Emoji字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "测试Emoji😀👍🎉"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_multilingual_边界值测试",
+        "description": "测试参数 BackupName 的多语言字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": "English中文日本語한국어"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_empty_边界值测试",
+        "description": "测试参数 BackupMethod 的空字符串",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": ""
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_long_边界值测试",
+        "description": "测试参数 BackupMethod 的超长字符串(1000字符)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_special_边界值测试",
+        "description": "测试参数 BackupMethod 的特殊字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "!@#$%^&*()_+-=[]{}|;':\",./<>?\\"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_spaces_边界值测试",
+        "description": "测试参数 BackupMethod 的空格前后",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "   空格前后   "
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_emoji_边界值测试",
+        "description": "测试参数 BackupMethod 的Emoji字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "测试Emoji😀👍🎉"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_multilingual_边界值测试",
+        "description": "测试参数 BackupMethod 的多语言字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": "English中文日本語한국어"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_empty_边界值测试",
+        "description": "测试参数 Blacklist 的空字符串",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": ""
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_long_边界值测试",
+        "description": "测试参数 Blacklist 的超长字符串(1000字符)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_special_边界值测试",
+        "description": "测试参数 Blacklist 的特殊字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "!@#$%^&*()_+-=[]{}|;':\",./<>?\\"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_spaces_边界值测试",
+        "description": "测试参数 Blacklist 的空格前后",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "   空格前后   "
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_emoji_边界值测试",
+        "description": "测试参数 Blacklist 的Emoji字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "测试Emoji😀👍🎉"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_multilingual_边界值测试",
+        "description": "测试参数 Blacklist 的多语言字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": "English中文日本語한국어"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_empty_边界值测试",
+        "description": "测试参数 Action 的空字符串",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_long_边界值测试",
+        "description": "测试参数 Action 的超长字符串(1000字符)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_special_边界值测试",
+        "description": "测试参数 Action 的特殊字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_spaces_边界值测试",
+        "description": "测试参数 Action 的空格前后",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_emoji_边界值测试",
+        "description": "测试参数 Action 的Emoji字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_multilingual_边界值测试",
+        "description": "测试参数 Action 的多语言字符",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "边界值测试"
+      },
+      {
+        "name": "BackupUDBInstance_Region_缺失测试",
+        "description": "测试缺少必需参数 Region 的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_缺失测试",
+        "description": "测试缺少必需参数 DBId 的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_缺失测试",
+        "description": "测试缺少必需参数 BackupName 的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_Action_缺失测试",
+        "description": "测试缺少必需参数 Action 的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_DBId_类型错误测试",
+        "description": "测试参数 DBId 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "DBId": 12345
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupName_类型错误测试",
+        "description": "测试参数 BackupName 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "Action": "BackupUDBInstance",
+            "BackupName": 12345
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_UseBlacklist_类型错误测试",
+        "description": "测试参数 UseBlacklist 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "UseBlacklist": "不是布尔值"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_BackupMethod_类型错误测试",
+        "description": "测试参数 BackupMethod 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "BackupMethod": 12345
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_Blacklist_类型错误测试",
+        "description": "测试参数 Blacklist 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Blacklist": 12345
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_ForceBackup_类型错误测试",
+        "description": "测试参数 ForceBackup 类型错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "ForceBackup": "不是布尔值"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_email_格式错误测试",
+        "description": "测试email格式参数错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "Email": "无效的邮箱格式"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_url_格式错误测试",
+        "description": "测试url格式参数错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "URL": "无效的URL格式"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_date_格式错误测试",
+        "description": "测试date格式参数错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "StartTime": "无效的日期格式"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_json_格式错误测试",
+        "description": "测试json格式参数错误的情况",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId",
+            "BackupName": "test_BackupName",
+            "Action": "BackupUDBInstance",
+            "ConfigJson": "{ 这不是有效的JSON }"
+          }
+        },
+        "expected": {
+          "status": 400,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "异常测试"
+      },
+      {
+        "name": "BackupUDBInstance_幂等性测试",
+        "description": "测试多次发送相同请求是否产生相同结果 (重复提交相同的请求应产生一样的结果)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_yrqqe",
+            "BackupName": "test_BackupName_shrfs",
+            "UseBlacklist": true,
+            "ForceBackup": false,
+            "Action": "BackupUDBInstance",
+            "ClientToken": "{{$randomUUID}}"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0
+          }
+        },
+        "category": "特殊测试"
+      },
+      {
+        "name": "BackupUDBInstance_性能测试",
+        "description": "测试API响应时间是否在可接受范围内 (响应时间应小于2秒)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_vlhqy",
+            "BackupName": "test_BackupName_koswb",
+            "BackupMethod": "test_BackupMethod_wprzn",
+            "ForceBackup": true,
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0
+          },
+          "max_response_time": 2000
+        },
+        "category": "特殊测试"
+      },
+      {
+        "name": "BackupUDBInstance_安全测试",
+        "description": "测试API对于SQL注入和XSS攻击的防御能力",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "' OR 1=1; -- <script>alert('XSS')</script>",
+            "BackupName": "' OR 1=1; -- <script>alert('XSS')</script>",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "RetCode": {
+              "$ne": 0
+            }
+          }
+        },
+        "category": "特殊测试"
+      },
+      {
+        "name": "BackupUDBInstance_文档校验测试",
+        "description": "验证API响应是否符合文档描述 (检查响应字段是否与文档一致)",
+        "request": {
+          "path": "/BackupUDBInstance",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "Region": "{{Region}}",
+            "Zone": "{{Zone}}",
+            "ProjectId": "{{ProjectId}}",
+            "PublicKey": "{{PublicKey}}",
+            "PrivateKey": "{{PrivateKey}}",
+            "DBId": "test_DBId_uxbyz",
+            "BackupName": "test_BackupName_wlcmq",
+            "Blacklist": "test_Blacklist_pfnxz",
+            "Action": "BackupUDBInstance"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "RetCode": 0,
+            "Action": true
+          }
+        },
+        "category": "特殊测试"
+      }
+    ]
+  }
+}

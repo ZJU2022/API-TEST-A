@@ -1,0 +1,15 @@
+# Core dependencies
+PyMuPDF==1.21.1    # For PDF parsing
+requests==2.28.2   # For HTTP requests
+PyYAML==6.0        # For configuration handling
+python-dotenv==1.0.0  # For environment variables
+
+# AI services
+openai==0.27.8     # OpenAI API client
+
+# Testing tools
+newman-reporter-htmlextra==1.22.11  # Optional, for Postman/Newman HTML reports
+
+# Utilities
+jsonpath-ng==1.5.0  # For JSON path expressions
+typing-extensions==4.5.0  # For advanced type hints

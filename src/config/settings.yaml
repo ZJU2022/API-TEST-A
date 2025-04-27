@@ -1,0 +1,44 @@
+# API Test AI Configuration
+
+# AI settings
+ai:
+  provider: openai
+  model: gpt-3.5-turbo
+  # api_key: YOUR_KEY  # Prefer using environment variable OPENAI_API_KEY
+  # 可选的本地大模型
+  # provider: local_llm
+  # model: llama3
+  # endpoint: http://localhost:8080/v1
+  # api_key: not-needed  # 本地模型通常不需要API密钥
+
+# Testing settings
+testing:
+  base_url: https://api.ucloud.com
+  timeout_seconds: 30
+  max_retries: 2
+  use_postman: false
+
+# API environment variables
+api_environment:
+  Region: "cn-bj2"     # 默认区域
+  Zone: "cn-bj2-02"    # 默认可用区
+  ProjectId: "default" # 默认项目ID
+
+# Postman settings
+postman:
+  newman_path: newman
+  collection_dir: postman_collections
+
+# Report settings
+report:
+  output_dir: reports
+  generate_html: true
+  generate_json: true
+  include_request_body: true
+  include_response_body: true
+
+# Logging settings
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_dir: logs
+  console_output: true
